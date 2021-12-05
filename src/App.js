@@ -5,37 +5,23 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      input: " "
     };
-    this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
-    this.reset = this.reset.bind(this)
-  }
-  increment() {
-  this.setState(state => ({
-      count: state.count + 1
-    }));
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  decrement() {
-    this.setState(state => ({
-        count: state.count - 1
-      }));
-    }
-
-    reset() {
-      this.setState(state => ({
-          count: 0
-        }));
-      }
+  handleChange(event) {
+  this.setState({
+    input: event.target.value
+  })
+  }
   
   render() {
       return (
         <div>
-          <button className="Increment" onClick={this.increment}>Increment</button>
-          <button className="Reset" onClick={this.reset}>Reset</button>
-          <button className="Decrement" onClick={this.decrement}>Decrement</button>
-          <h2>{this.state.count}</h2>
+          <input value={this.state.input} onChange={this.handleChange}/>
+          <h4>Controlled Inputs:</h4>
+          <h2>{this.state.input}</h2>
         </div>
       );
     }
