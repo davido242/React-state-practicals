@@ -1,45 +1,33 @@
 import React from 'react';
 import './App.css';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
-      submit: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      name: "Davido"
+    }
   }
-  handleChange(event) {
-    this.setState({
-      input: event.target.value
-    });
+
+  render() {
+    return (
+      <div>
+        <NavBar name={this.state.name}/>
+      </div>
+    )
   }
-  handleSubmit(event) {
-    // Change code below this line
-event.preventDefault()
-this.setState ({
-  submit: this.state.input
-});
-    // Change code above this line
+}
+
+class NavBar extends React.Component {
+  constructor (props) {
+    super(props);
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          {/* Change code below this line */}
-<input value={this.state.input} onChange={this.handleChange} />
-          {/* Change code above this line */}
-          <button type='submit'>Submit!</button>
-        </form>
-        {/* Change code below this line */}
-<h1>{this.state.submit}</h1>
-        {/* Change code above this line */}
+        <h1>Welcome Monsior  {this.props.name}</h1>
       </div>
-    );
+    )
   }
 }
-
 
 export default App;
