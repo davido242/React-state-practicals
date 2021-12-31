@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import { useState } from "react";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +14,9 @@ class App extends React.Component {
       inputValue: event.target.value
     });
   }
+  componentWillUnmount(){
+    {console.log("Davido")}
+  }
   render() {
     return (
        <div>
@@ -21,6 +24,8 @@ class App extends React.Component {
     <GetInput input={this.state.inputValue}
     handleChange={this.handleChange}/>
     <RenderInput input={this.state.inputValue} />
+    <Example />
+    <FavoriteColor/>
         { /* Change code above this line */ }
        </div>
     );
@@ -56,5 +61,34 @@ class RenderInput extends React.Component {
     );
   }
 };
+
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+
+function FavoriteColor() {
+  const [countt, setCount] = useState("red");
+
+  return (
+    <>
+      <h1>My favorite color is {countt}!</h1>
+      <button
+        onClick={() => setCount("blue")}
+      >Blue</button>
+    </>
+  )
+}
 
 export default App;
