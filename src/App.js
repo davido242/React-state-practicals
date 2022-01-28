@@ -38,8 +38,8 @@ class GetInput extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h3>Get Input:</h3>
+      <div className="bg-red-500">
+        <h3 className="text-3xl font-bold underline">Get Input:</h3>
         <input
           value={this.props.input}
           onChange={this.props.handleChange}/>
@@ -83,10 +83,9 @@ function FavoriteColor() {
 
   return (
     <>
-      <h1>My favorite color is {countt}!</h1>
-      <button
-        onClick={() => setCount("blue")}
-      >Blue</button>
+      <h1 className="text-3xl minday font-bold underline bg-red-500">
+      Hello world!??? 
+    </h1>
     </>
   )
 }
